@@ -19,7 +19,7 @@ const server = app.listen(port, () => {
 io.attach(server);
 
 io.on('connection', function(socket) {
-    console.log('a useer has connection'); 
+    console.log('a user has connection'); 
     socket.emit('connected', {sID: socket.id, message: "new connection"});
 
     socket.on("chat_message", function(msg) {
@@ -27,7 +27,21 @@ io.on('connection', function(socket) {
         io.emit('new_message', {id: socket.id, message: msg})
     })
 
+    socket.on("chat_join", function(fnm) {
+        console.log(fnm);
+        io.emit('new_join', {id: socket.id, message: fnm})
+    })
+
+
+    socket.on('chat_leave', function(fnm) {
+        console.log(fnm); 
+        io.emit('new_leave', {id: socket.id, message:fnm})
+
+    })
+
     socket.on('disconnect', function() {
-        console.log('a user has disconnected'); 
+        console.log('user is offline'); 
+        
+
     })
 })
