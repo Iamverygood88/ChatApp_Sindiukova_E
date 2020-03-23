@@ -3,16 +3,47 @@
 
     width: 45%;
     padding: 8px 12px;
-    background-color: white; 
+    background-color: #29323c;
     border-radius: 8px;
     margin-bottom: 1rem;
-
+    color:white;
     float:left;
     clear: both;
+    animation: movenew 1s ease-out;
+
+    @keyframes movenew {
+        0%, 100% {
+          transform: translate(0, -45%);
+          opacity: 0;
+        }
+        
+        100% {
+          transform: translate(0, 0);
+          opacity: 100%;
+        }
+    }
 }
+
+  
+    
+
+  
 
 .my-message {
     float: right !important;
-    background-color: #86bf9d;
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
     color: white;
+    animation: movem 2s ease-out;
+
+    @keyframes movem {
+        0%, 100% {
+          transform: translate(0, -45%);
+          opacity: 0;
+        }
+        
+        100% {
+          transform: translate(0, 0);
+          opacity: 100%;
+        }
+    }
 }
